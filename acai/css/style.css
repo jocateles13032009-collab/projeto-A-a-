@@ -1,0 +1,129 @@
+/* === Tokens === */
+:root {
+  --cor-primaria: #5b2a86;
+  --cor-primaria-escura: color-mix(in oklab, #5c2d85 80%, black);
+  --cor-fundo: #f9f7f1;
+  --cor-superficie: #ffffff;
+  --cor-texto: #1a1a1a;
+  --cor-muted: #555;
+  --cor-borda: #e6e1d8;
+  --raio: 12px;
+  --sombra: 0 6px 20px rgba(0,0,0,.08);
+  --max: 1100px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+}
+
+.container { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
+
+/* === Acessibilidade === */
+.skip-link {
+  position: absolute; left: -999px; top: 0;
+  background: var(--cor-primaria); color: #fff;
+  padding: .75rem 1rem; z-index: 100;
+}
+.skip-link:focus { left: 0; }
+
+:focus-visible {
+  outline: 3px solid var(--cor-primaria);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* === Header === */
+.site-header {
+  background: var(--cor-superficie);
+  border-bottom: 1px solid var(--cor-borda);
+  position: sticky; top: 0; z-index: 10;
+}
+.header-inner { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; }
+.logo { font-weight: 700; font-size: 1.15rem; color: var(--cor-primaria); text-decoration: none; }
+.nav-list { list-style: none; display: flex; gap: 1.25rem; margin: 0; padding: 0; }
+.nav-list a { color: var(--cor-texto); text-decoration: none; font-weight: 500; }
+.nav-list a:hover { color: var(--cor-primaria); }
+
+/* === Hero === */
+.hero {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-primaria-escura));
+  background: url(../img/bc.jpg);
+  color: #fff;
+  text-align: center;
+}
+.hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 .75rem; }
+.lead { font-size: 1.15rem; opacity: .95; margin: 0 auto 1.5rem; max-width: 36rem; }
+
+/* === Seções === */
+.section { padding: 3rem 0; }
+.section--alt { background: var(--cor-superficie); }
+.section h2 { font-size: 1.75rem; margin: 0 0 1.5rem; color: var(--cor-primaria-escura); }
+
+/* === Cards === */
+.cards {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.card {
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 1.25rem;
+  box-shadow: var(--sombra);
+  transition: transform .2s;
+}
+.card:hover { transform: translateY(-3px); }
+.card h3 { margin: 0 0 .5rem; color: var(--cor-primaria); font-size: 1.1rem; }
+.card .preco { font-weight: 700; color: var(--cor-primaria-escura); }
+
+/* === Form === */
+.form { max-width: 520px; }
+.field { margin-bottom: 1rem; }
+.field label { display: block; margin-bottom: .35rem; font-weight: 500; }
+.field input, .field textarea {
+  width: 100%; padding: .65rem .85rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px; font: inherit;
+  background: var(--cor-superficie);
+}
+.field input:focus, .field textarea:focus {
+  border-color: var(--cor-primaria);
+}
+.btn {
+  display: inline-block;
+  background: var(--cor-primaria); color: #fff;
+  padding: .85rem 1.5rem; border: 0; border-radius: 999px;
+  font-weight: 600; cursor: pointer; text-decoration: none;
+  transition: background .2s;
+}
+.btn:hover, .btn:focus { background: var(--cor-primaria-escura); }
+.muted { color: var(--cor-muted); font-size: .9rem; }
+.form-status { margin-top: 1rem; min-height: 1.5rem; font-weight: 500; }
+.form-status.ok { color: #2e7d6b; }
+.form-status.erro { color: #b83a2d; }
+
+/* === Footer === */
+.site-footer {
+  background: var(--cor-primaria-escura); color: #fff;
+  padding: 1.5rem 0; text-align: center; margin-top: 2rem;
+}
+
+/* === Responsivo === */
+@media (max-width: 600px) {
+  .header-inner { flex-direction: column; gap: .5rem; }
+  .nav-list { flex-wrap: wrap; justify-content: center; }
+}
+
+/* === Movimento reduzido === */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
