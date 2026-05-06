@@ -3,86 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Açaí cremoso com acompanhamentos frescos.">
-  <title>🍇 Rei do Açaí</title>
+  <meta name="description" content="👑 Rei do Açaí — Monte seu açaí do seu jeito. Entrega rápida e ingredientes frescos!">
+  <title>👑 Rei do Açaí</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-  <header class="site-header" role="banner">
+  <!-- HEADER -->
+  <header class="site-header">
     <div class="container header-inner">
-      <a href="#" class="logo" aria-label="👑 Rei do Açaí — página inicial">👑 Rei do Açaí 🍇</a>
-      <nav aria-label="Menu principal">
+      <a href="#" class="logo">👑 Rei do Açaí</a>
+
+      <nav>
         <ul class="nav-list">
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#cardapio">Cardápio</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
+
+      <a class="btn btn--whatsapp" href="#" target="_blank">
+        Pedir no WhatsApp
+      </a>
     </div>
   </header>
 
+  <!-- MAIN -->
   <main id="conteudo">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container">
-        <h1 id="hero-title">👑 Rei do Açaí 🍇</h1>
-        <p class="lead">Açaí cremoso com acompanhamentos frescos.</p>
-        <a class="btn" href="#cardapio">Ver cardápio</a>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>O açaí mais brabo da região 👑</h1>
+          <p class="lead">
+            Cremoso, gelado e cheio de toppings. Monte do seu jeito e peça agora!
+          </p>
+
+          <div class="hero-actions">
+            <a href="#cardapio" class="btn">Ver cardápio</a>
+            <a href="#" class="btn btn--outline">Montar pedido</a>
+          </div>
+        </div>
+
+        <div class="hero-img">
+          <!-- depois você pode trocar por imagem real -->
+          <img src="https://images.unsplash.com/photo-1590080877777-4c9f9c6b4f9b" alt="Copo de açaí com frutas">
+        </div>
       </div>
     </section>
 
-    <section id="sobre" class="section" aria-labelledby="sobre-title">
-      <div class="container">
-        <h2 id="sobre-title">Sobre nós</h2>
-        <p>Somos Rei do Açaí. Atendemos com carinho desde sempre. Edite este texto para contar a história verdadeira do cliente.</p>
+    <!-- DIFERENCIAIS -->
+    <section class="section">
+      <div class="container features">
+        <div class="feature">
+          <h3>🍓 Ingredientes frescos</h3>
+          <p>Só trabalhamos com produtos de qualidade.</p>
+        </div>
+
+        <div class="feature">
+          <h3>⚡ Entrega rápida</h3>
+          <p>Seu açaí chega gelado e no ponto.</p>
+        </div>
+
+        <div class="feature">
+          <h3>🎯 Monte do seu jeito</h3>
+          <p>Escolha toppings e personalize tudo.</p>
+        </div>
       </div>
     </section>
 
-    <section id="cardapio" class="section section--alt" aria-labelledby="cardapio-title">
+    <!-- SOBRE -->
+    <section id="sobre" class="section section--alt">
       <div class="container">
-        <h2 id="cardapio-title">Cardápio</h2>
-        <ul class="cards" id="lista-itens" aria-live="polite">
-          <!-- Itens injetados via JS a partir de js/dados.js -->
-        </ul>
+        <h2>Sobre o Rei do Açaí</h2>
+        <p>
+          O <strong>👑 Rei do Açaí</strong> nasceu com a missão de trazer o melhor açaí,
+          com qualidade, sabor e preço justo. Aqui você monta seu copo do jeito que quiser,
+          com diversas opções de acompanhamentos.
+        </p>
       </div>
     </section>
 
-    <section id="contato" class="section" aria-labelledby="contato-title">
+    <!-- CARDÁPIO -->
+    <section id="cardapio" class="section">
       <div class="container">
-        <h2 id="contato-title">Fale com a gente</h2>
-        <form class="form" novalidate aria-describedby="form-help">
-          <p id="form-help" class="muted">Os campos marcados com * são obrigatórios.</p>
+        <h2>Cardápio</h2>
+        <ul class="cards" id="lista-itens"></ul>
+      </div>
+    </section>
 
-          <div class="field">
-            <label for="nome">Nome *</label>
-            <input id="nome" name="nome" type="text" required autocomplete="name" aria-required="true">
-          </div>
+    <!-- CONTATO -->
+    <section id="contato" class="section section--alt">
+      <div class="container">
+        <h2>Contato</h2>
 
-          <div class="field">
-            <label for="email">E-mail *</label>
-            <input id="email" name="email" type="email" required autocomplete="email" aria-required="true">
-          </div>
+        <form class="form" id="form">
+          <input type="text" placeholder="Seu nome" required>
+          <input type="email" placeholder="Seu e-mail" required>
+          <textarea placeholder="Mensagem"></textarea>
 
-          <div class="field">
-            <label for="mensagem">Mensagem</label>
-            <textarea id="mensagem" name="mensagem" rows="4"></textarea>
-          </div>
-
-          <button type="submit" class="btn">Enviar</button>
-          <p id="form-status" role="status" class="form-status"></p>
+          <button class="btn">Enviar</button>
+          <p id="status"></p>
         </form>
       </div>
     </section>
+
   </main>
 
-  <footer class="site-footer" role="contentinfo">
+  <!-- FOOTER -->
+  <footer class="site-footer">
     <div class="container">
-      <p>© <span id="ano"></span> Açaí Tropical. Projeto acadêmico — Curso de Web Design Híbrido · Vocação.</p>
+      <p>© <span id="ano"></span> 👑 Rei do Açaí</p>
     </div>
   </footer>
 
   <script src="js/dados.js"></script>
   <script src="js/app.js"></script>
 </body>
-</html>
+      </html>
