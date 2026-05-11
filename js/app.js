@@ -1,106 +1,56 @@
-// 👑 Rei do Açaí — app.js avançado
 (function () {
   "use strict";
 
-  // CONFIG (troque pelo número real)
-  const WHATSAPP_NUMERO = "5511999999999";
+  const ano = document.getElementById("ano");
 
-  // Ano automático
-  const anoEl = document.getElementById("ano");
-  if (anoEl) anoEl.textContent = new Date().getFullYear();
+  if (ano) {
+    ano.textContent = new Date().getFullYear();
+  }
 
-  // Renderização do cardápio
   const lista = document.getElementById("lista-itens");
 
   if (lista && Array.isArray(ITENS)) {
-    lista.innerHTML = ITENS.map(item => {
-      const nome = escapar(item.nome);
-      const descricao = escapar(item.descricao);
-      const preco = escapar(item.preco);
-      const imagem = item.imagem || "https://images.unsplash.com/photo-1590080877777-4c9f9c6b4f9b";
 
-      return `
-        <li class="card">
-          <img src="${imagem}" alt="${nome}" class="card-img">
+    lista.innerHTML = ITENS.map(item => `
 
-          ${item.destaque ? '<span class="badge">🔥 Mais pedido</span>' : ""}
+      <div class="card">
 
-          <h3>${nome}</h3>
-          <p>${descricao}</p>
+        <img src="${item.imagem}" alt="${item.nome}" class="card-img">
+
+        <div class="card-content">
+          <h3>${item.nome}</h3>
+
+          <p>${item.descricao}</p>
 
           <div class="card-footer">
-            <span class="preco">${preco}</span>
-            <button class="btn btn--small pedir-btn" 
-              data-nome="${nome}" 
-              data-preco="${preco}">
-              Pedir
+            <span class="preco">
+              R$ ${item.preco.toFixed(2).replace('.', ',')}
+            </span>
+
+            <button class="btn add-cart"
+              data-id="${item.id}">
+              Adicionar
             </button>
           </div>
-        </li>
-      `;
-    }).join("");
+        </div>
 
-    ativarBotoesPedido();
+      </div>
+
+    `).join("");
+
   }
 
-  // BOTÃO PEDIR (WhatsApp)
-  function ativarBotoesPedido() {
-    const botoes = document.querySelectorAll(".pedir-btn");
+  document.addEventListener("click", function (e) {
 
-    botoes.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const nome = btn.dataset.nome;
-        const preco = btn.dataset.preco;
+    if (e.target.classList.contains("add-cart")) {
 
-        const mensagem = `Olá! Quero pedir:\n\n🍇 ${nome}\n💰 ${preco}`;
-        const url = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem)}`;
+      const id = Number(e.target.dataset.id);
 
-        window.open(url, "_blank");
-      });
-    });
-  }
+      const item = ITENS.find(produto => produto.id === id);
 
-  // FORMULÁRIO
-  const form = document.querySelector(".form");
-  const status = document.getElementById("form-status");
+      adicionarAoCarrinho(item);
+    }
 
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const nome = form.nome.value.trim();
-      const email = form.email.value.trim();
-
-      if (!nome || !email) {
-        setStatus("⚠ Preencha nome e e-mail.", "erro");
-        return;
-      }
-
-      if (!validarEmail(email)) {
-        setStatus("⚠ E-mail inválido.", "erro");
-        return;
-      }
-
-      setStatus("✓ Mensagem enviada! Entraremos em contato.", "ok");
-      form.reset();
-    });
-  }
-
-  function validarEmail(email) {
-    return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
-  }
-
-  function setStatus(msg, tipo) {
-    if (!status) return;
-    status.textContent = msg;
-    status.className = `form-status ${tipo}`;
-  }
-
-  // Segurança (anti XSS)
-  function escapar(txt) {
-    const div = document.createElement("div");
-    div.textContent = String(txt ?? "");
-    return div.innerHTML;
-  }
+  });
 
 })();
