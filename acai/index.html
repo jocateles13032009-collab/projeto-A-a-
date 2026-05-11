@@ -3,128 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="👑 Rei do Açaí — Monte seu açaí do seu jeito. Entrega rápida e ingredientes frescos!">
   <title>👑 Rei do Açaí</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#" class="logo">👑 Rei do Açaí</a>
+<header class="site-header">
+  <div class="container header-inner">
 
-      <nav>
-        <ul class="nav-list">
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#cardapio">Cardápio</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
+    <a href="index.html" class="logo">👑 Rei do Açaí</a>
 
-      <a class="btn btn--whatsapp" href="#" target="_blank">
-        Pedir no WhatsApp
+    <nav>
+      <ul class="nav-list">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="cardapio.html">Cardápio</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <button class="cart-btn" id="abrir-carrinho">
+      🛒 <span id="cart-count">0</span>
+    </button>
+
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div>
+      <h1>O melhor açaí da cidade 👑</h1>
+
+      <p class="lead">
+        Cremoso, gelado e cheio de toppings incríveis.
+      </p>
+
+      <a href="cardapio.html" class="btn">
+        Ver cardápio
       </a>
     </div>
-  </header>
 
-  <!-- MAIN -->
-  <main id="conteudo">
-
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <h1>O açaí mais brabo da região 👑</h1>
-          <p class="lead">
-            Cremoso, gelado e cheio de toppings. Monte do seu jeito e peça agora!
-          </p>
-
-          <div class="hero-actions">
-            <a href="#cardapio" class="btn">Ver cardápio</a>
-            <a href="#" class="btn btn--outline">Montar pedido</a>
-          </div>
-        </div>
-
-        <div class="hero-img">
-          <!-- depois você pode trocar por imagem real -->
-          <img src="https://images.unsplash.com/photo-1590080877777-4c9f9c6b4f9b" alt="Copo de açaí com frutas">
-        </div>
-      </div>
-    </section>
-
-    <!-- DIFERENCIAIS -->
-    <section class="section">
-      <div class="container features">
-        <div class="feature">
-          <h3>🍓 Ingredientes frescos</h3>
-          <p>Só trabalhamos com produtos de qualidade.</p>
-        </div>
-
-        <div class="feature">
-          <h3>⚡ Entrega rápida</h3>
-          <p>Seu açaí chega gelado e no ponto.</p>
-        </div>
-
-        <div class="feature">
-          <h3>🎯 Monte do seu jeito</h3>
-          <p>Escolha toppings e personalize tudo.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SOBRE -->
-    <section id="sobre" class="section section--alt">
-      <div class="container">
-        <h2>Sobre o Rei do Açaí</h2>
-        <p>
-          O <strong>👑 Rei do Açaí</strong> nasceu com a missão de trazer o melhor açaí,
-          com qualidade, sabor e preço justo. Aqui você monta seu copo do jeito que quiser,
-          com diversas opções de acompanhamentos.
-        </p>
-      </div>
-    </section>
-
-    <!-- CARDÁPIO -->
-    <section id="cardapio" class="section">
-      <div class="container">
-        <h2>Cardápio</h2>
-        <ul class="cards" id="lista-itens"></ul>
-      </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section id="contato" class="section section--alt">
-      <div class="container">
-        <h2>Contato</h2>
-
-        <form class="form" id="form">
-          <input type="text" placeholder="Seu nome" required>
-          <input type="email" placeholder="Seu e-mail" required>
-          <textarea placeholder="Mensagem"></textarea>
-
-          <button class="btn">Enviar</button>
-          <p id="status"></p>
-        </form>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="ano"></span> 👑 Rei do Açaí</p>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1625944230945-1b7dd3bdbb6b" alt="Açaí">
     </div>
-  </footer>
 
-  <script src="js/dados.js"></script>
-  <script src="js/app.js"></script>
+  </div>
+</section>
+
+<section id="sobre" class="section">
+  <div class="container">
+
+    <h2>Sobre nós</h2>
+
+    <p>
+      O 👑 Rei do Açaí oferece a melhor experiência em açaí,
+      com ingredientes frescos, diversos acompanhamentos e entrega rápida.
+    </p>
+
+  </div>
+</section>
+
+<section id="contato" class="section section--alt">
+  <div class="container">
+
+    <h2>Contato</h2>
+
+    <form class="form">
+      <input type="text" placeholder="Seu nome" required>
+      <input type="email" placeholder="Seu e-mail" required>
+      <textarea placeholder="Mensagem"></textarea>
+
+      <button class="btn">Enviar</button>
+    </form>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© <span id="ano"></span> 👑 Rei do Açaí</p>
+  </div>
+</footer>
+
+<script src="js/carrinho.js"></script>
+<script src="js/app.js"></script>
 </body>
-      </html>
+  </html>
