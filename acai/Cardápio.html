@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio — 👑 Rei do Açaí</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a href="index.html" class="logo">👑 Rei do Açaí</a>
+
+    <nav>
+      <ul class="nav-list">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="cardapio.html">Cardápio</a></li>
+      </ul>
+    </nav>
+
+    <button class="cart-btn" id="abrir-carrinho">
+      🛒 <span id="cart-count">0</span>
+    </button>
+
+  </div>
+</header>
+
+<main>
+
+<section class="section">
+  <div class="container">
+
+    <h1>Nosso Cardápio 🍇</h1>
+
+    <div class="cards" id="lista-itens"></div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- CARRINHO -->
+<div class="cart-sidebar" id="cart-sidebar">
+
+  <div class="cart-header">
+    <h2>Seu Carrinho</h2>
+    <button id="fechar-carrinho">✖</button>
+  </div>
+
+  <div id="cart-items"></div>
+
+  <div class="cart-footer">
+    <p>Total: <strong id="cart-total">R$ 0,00</strong></p>
+
+    <button class="btn" id="finalizar-pedido">
+      Finalizar Pedido
+    </button>
+  </div>
+
+</div>
+
+<script src="js/dados.js"></script>
+<script src="js/carrinho.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
